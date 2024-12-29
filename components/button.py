@@ -1,9 +1,10 @@
 from fasthtml.common import Button
 
 
-def button(label, color="default", hx_get=None, hx_post=None, hx_swap=None, hx_target=None, extra={}):
+def button(label, type="button", color="default", hx_get=None, hx_post=None, hx_swap=None, hx_target=None,cls=None, extra={}):
     styles = {
         "default": "text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-800",
+        "primary": "text-white bg-primary-0 hover:bg-blue-700 focus:ring-blue-800",
         "alternative": "text-gray-400 bg-gray-800 border border-gray-600 hover:text-white hover:bg-gray-700",
         "dark": "text-white bg-gray-800 hover:bg-gray-700 focus:ring-gray-700 border-gray-700",
         "light": "text-white bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700",
@@ -21,7 +22,8 @@ def button(label, color="default", hx_get=None, hx_post=None, hx_swap=None, hx_t
             """
     }
     attrs = {
-        "cls": f"{styles[color]} focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 me-2 mb-2 border-transparent",
+        "type":type,
+        "cls": f"{styles[color]} focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 border-transparent {cls}",
     }
     
     if hx_get:
@@ -41,7 +43,6 @@ def button(label, color="default", hx_get=None, hx_post=None, hx_swap=None, hx_t
 
     return  Button(
         label,
-        type="button",
         **attrs,
         **extra
     )
