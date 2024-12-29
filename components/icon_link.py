@@ -1,5 +1,6 @@
 from fasthtml.common import A
 
+
 def icon_link(type="edit", get=None, target=None, delete=None, href="#", swap=None, **extra):
     """
     Creates a link component with predefined icon styles.
